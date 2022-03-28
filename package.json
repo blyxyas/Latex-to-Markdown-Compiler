@@ -1,8 +1,8 @@
 {
-  "name": "simplelatex",
+  "name": "latexcompiler",
   "displayName": "Latex to Markdown Compiler",
   "description": "Compile your latex-containing markdown to markdown that can be view from a Github Markdown File",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "https://github.com/Blyxyas/Latex-to-Markdown-Compiler/",
   "publisher": "Blyxyas",
   "icon": "images/icon.png",
@@ -10,17 +10,39 @@
     "vscode": "^1.65.0"
   },
   "categories": [
-    "Other"
+    "Formatters",
+	"Other",
+	"Notebooks"
   ],
   "activationEvents": [
-    "onCommand:simplelatex.compile"
+    "onCommand:latexcompiler.compile"
   ],
   "main": "./out/extension.js",
   "contributes": {
+	"configuration": [
+		{
+			"id": "latexcompiler",
+			"title": "Latex to Markdown Compiler",
+			"properties": {
+				"latexcompiler.backgroundColor": {
+					"type":"string",
+					"order": 1,
+					"default": "#333",
+					"description": "Background Color"
+				},
+				"latexcompiler.textColor": {
+					"type":"string",
+					"order": 2,
+					"default": "#fff",
+					"description": "Text Color"
+				}
+			}
+		}
+	],
     "commands": [
       {
-        "command": "simplelatex.compile",
-        "title": "Compile Latex"
+        "command": "latexcompiler.compile",
+        "title": "<=== Compile Latex to Markdown ===>"
       }
     ]
   },

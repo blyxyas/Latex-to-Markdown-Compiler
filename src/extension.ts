@@ -7,6 +7,25 @@ import fs = require("fs");
 import { exit } from "process";
 
 export function activate(context: vscode.ExtensionContext) {
+	
+
+	//
+	// ─── CONFIGURATION ──────────────────────────────────────────────────────────────
+	//
+
+// We read the configuration file
+	const config = vscode.workspace.getConfiguration("latexcompiler");
+	let backgroundColor: string | undefined = config.get("backgroundColor");
+	let textColor: string | undefined = config.get("textColor");
+
+	if (backgroundColor !== undefined) {
+		backgroundColor = backgroundColor.replace("#", "%23");
+	}
+
+	if (textColor !== undefined) {
+		textColor = textColor.replace("#", "%23");
+	};
+
 	function compileFile(content: string): string {
 		let expression: string[] = [];
 		let lineArr: string[];
@@ -36,10 +55,10 @@ export function activate(context: vscode.ExtensionContext) {
 					lastBlockIndex = i;
 
 					blockContent = lines.slice(firstBlockIndex, lastBlockIndex + 1).join("");
-					lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${encodeURI(blockContent)}" /></div>`;
+					lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b") + "}"}" /></div>`;
 
 					for (let toClear = firstBlockIndex; toClear < lastBlockIndex; toClear++) {
-						lines[toClear] = "";
+						lines[toClear] = "\r";
 					}
 				}
 			}
@@ -50,7 +69,7 @@ export function activate(context: vscode.ExtensionContext) {
 					lineArr = lines[i].split("$");
 					for (let j = 0; j < lineArr.length; j++) {
 						if (j % 2 !== 0 && lineArr[j - 1] !== "\\") {
-							lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${encodeURI(lineArr[j])}" />`;
+							lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(lineArr[j]).replace("+", "%2b") + "}"}" />`;
 						};
 					};
 
@@ -61,14 +80,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// We check for inline expressions
 		};
-		vscode.window.showInformationMessage(lines.join(" "));
-		vscode.window.showInformationMessage("Compiling...");
-
 		return lines.join("\n");
 	};
 
 	// First, we register a command
-	let disposable = vscode.commands.registerCommand("simplelatex.compile", () => {
+	let disposable = vscode.commands.registerCommand("latexcompiler.compile", () => {
 		// We alert the user
 		// Getting the current workspace folder
 		if (vscode.workspace.workspaceFolders !== undefined) {
@@ -91,13 +107,13 @@ export function activate(context: vscode.ExtensionContext) {
 				if (vscode.window.activeTextEditor !== undefined) {
 					fs.writeFile(vscode.window.activeTextEditor.document.uri.fsPath, compileFile(text), (err) => {
 						if (err) {
-							let error = vscode.window.createOutputChannel("SimpleLatex Compilation Error");
+							let error = vscode.window.createOutputChannel("Latex Compiler Compilation Error");
 							error.appendLine("An error ocurred, no more information available.");
 							error.show();
 							exit();
 						}
 						else {
-							vscode.window.showInformationMessage("File compiled");
+							vscode.window.showInformationMessage("File Compiled!");
 						}
 					});
 				}
