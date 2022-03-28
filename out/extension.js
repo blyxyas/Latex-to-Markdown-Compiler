@@ -44,7 +44,7 @@ function activate(context) {
                     lines[i] = lines[i].replace("$$", "");
                     lastBlockIndex = i;
                     blockContent = lines.slice(firstBlockIndex, lastBlockIndex + 1).join("");
-                    lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b") + "}"}" /></h3>`;
+                    lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b").replace("#", "%23") + "}"}" /></h3>`;
                     for (let toClear = firstBlockIndex; toClear < lastBlockIndex; toClear++) {
                         lines[toClear] = "\r";
                     }
@@ -56,7 +56,7 @@ function activate(context) {
                     lineArr = lines[i].split("$");
                     for (let j = 0; j < lineArr.length; j++) {
                         if (j % 2 !== 0 && lineArr[j - 1] !== "\\") {
-                            lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(lineArr[j]).replace("+", "%2b") + "}"}" />`;
+                            lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(lineArr[j]).replace("+", "%2b").replace("#", "%23") + "}"}" />`;
                         }
                         ;
                     }
