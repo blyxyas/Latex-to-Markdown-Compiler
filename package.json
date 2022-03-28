@@ -2,10 +2,10 @@
   "name": "simplelatex",
   "displayName": "Latex to Markdown Compiler",
   "description": "Compile your latex-containing markdown to markdown that can be view from a Github Markdown File",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "repository": "https://github.com/Blyxyas/Latex-to-Markdown-Compiler/",
   "publisher": "Blyxyas",
-	"icon": "images/icon.png",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.65.0"
   },
