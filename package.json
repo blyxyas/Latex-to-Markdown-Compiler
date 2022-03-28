@@ -3,6 +3,7 @@
   "displayName": "Latex to Markdown Compiler",
   "description": "Compile your latex-containing markdown to markdown that can be view from a Github Markdown File",
   "version": "1.0.0",
+  "repository": "https://github.com/Blyxyas/Latex-to-Markdown-Compiler/",
   "engines": {
     "vscode": "^1.65.0"
   },

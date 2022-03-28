@@ -1,6 +1,7 @@
-# Simple Markdown Compiler
+# Latex to Markdown Compiler
 
-This is a simple markdown compiler.
+![Pacakge Logo](https://./package_src/logo.png)
+This is a latex to markdown compiler.
 
 ## Usage
 
@@ -11,7 +12,7 @@ Open the target file, open the command palette (With <kbd>Ctrl</kbd> + <kbd>Shif
 
 Use `$` to open an inline math formula. Like this!
 
-(View the source for this formulas in the [Latex file](formulas.tex))
+(View the source for this formulas in the [Latex file](https://github.com/Blyxyas/Latex-to-Markdown-Compiler/blob/master/formulas.tex))
 
 This is an inline formula $E=mc^2$, which means that I can keep writing in this line.
 
