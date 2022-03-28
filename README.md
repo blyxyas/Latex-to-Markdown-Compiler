@@ -5,7 +5,7 @@ This is a latex to markdown compiler.
 
 ## Usage
 
-Open the target file, open the command palette (With <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> In Windows & Linux, or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> for MacOS), and select Search for **`Compile Latex`**. That's it! It will replace all you latex formulas with the HTML tags that will render them.
+Open the target file, open the command palette (With *<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>* In Windows & Linux, or *<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>* for MacOS), and select Search for **`Compile Latex`**. That's it! It will replace all you latex formulas with the HTML tags that will render them.
 
 ## Features
 
