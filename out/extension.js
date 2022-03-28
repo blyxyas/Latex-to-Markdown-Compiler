@@ -13,14 +13,14 @@ function activate(context) {
     const config = vscode.workspace.getConfiguration("latexcompiler");
     let backgroundColor = config.get("backgroundColor");
     let textColor = config.get("textColor");
-    if (backgroundColor !== undefined) {
-        backgroundColor = backgroundColor.replace("#", "%23");
-    }
-    if (textColor !== undefined) {
-        textColor = textColor.replace("#", "%23");
-    }
-    ;
     function compileFile(content) {
+        if (backgroundColor !== undefined) {
+            backgroundColor = backgroundColor.replace("#", "%23");
+        }
+        if (textColor !== undefined) {
+            textColor = textColor.replace("#", "%23");
+        }
+        ;
         let expression = [];
         let lineArr;
         // <======= BLOCKS =======>
@@ -44,7 +44,7 @@ function activate(context) {
                     lines[i] = lines[i].replace("$$", "");
                     lastBlockIndex = i;
                     blockContent = lines.slice(firstBlockIndex, lastBlockIndex + 1).join("");
-                    lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b") + "}"}" /></div>`;
+                    lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b") + "}"}" /></h3>`;
                     for (let toClear = firstBlockIndex; toClear < lastBlockIndex; toClear++) {
                         lines[toClear] = "\r";
                     }

@@ -18,15 +18,16 @@ export function activate(context: vscode.ExtensionContext) {
 	let backgroundColor: string | undefined = config.get("backgroundColor");
 	let textColor: string | undefined = config.get("textColor");
 
-	if (backgroundColor !== undefined) {
-		backgroundColor = backgroundColor.replace("#", "%23");
-	}
-
-	if (textColor !== undefined) {
-		textColor = textColor.replace("#", "%23");
-	};
-
 	function compileFile(content: string): string {
+		
+		if (backgroundColor !== undefined) {
+			backgroundColor = backgroundColor.replace("#", "%23");
+		}
+	
+		if (textColor !== undefined) {
+			textColor = textColor.replace("#", "%23");
+		};
+
 		let expression: string[] = [];
 		let lineArr: string[];
 		
