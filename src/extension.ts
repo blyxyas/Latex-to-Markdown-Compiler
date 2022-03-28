@@ -55,7 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
 					lastBlockIndex = i;
 
 					blockContent = lines.slice(firstBlockIndex, lastBlockIndex + 1).join("");
-					lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b") + "}"}" /></div>`;
+					lines[i] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(blockContent).replace("+", "%2b") + "}"}" /></h3>`;
 
 					for (let toClear = firstBlockIndex; toClear < lastBlockIndex; toClear++) {
 						lines[toClear] = "\r";
