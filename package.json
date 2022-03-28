@@ -5,7 +5,7 @@
   "version": "1.0.1",
   "repository": "https://github.com/Blyxyas/Latex-to-Markdown-Compiler/",
   "publisher": "Blyxyas",
-	"icon": "https://raw.githubusercontent.com/Blyxyas/Latex-to-Markdown-Compiler/master/package_src/logo.png",
+	"icon": "images/icon.png",
   "engines": {
     "vscode": "^1.65.0"
   },

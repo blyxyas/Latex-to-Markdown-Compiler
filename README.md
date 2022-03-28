@@ -1,6 +1,6 @@
 # Latex to Markdown Compiler
 
-![Pacakge Logo](https://github.com/Blyxyas/Latex-to-Markdown-Compiler/blob/master/package_src/logo.png)
+![Pacakge Logo](https://github.com/Blyxyas/Latex-to-Markdown-Compiler/blob/master/images/logo.png)
 This is a latex to markdown compiler.
 
 ## Usage
