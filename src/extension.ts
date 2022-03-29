@@ -9,6 +9,12 @@ import { exit } from "process";
 export function activate(context: vscode.ExtensionContext) {
 	
 
+	function fixedEncodeURIComponent(str: string) {
+		return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+		  return '%' + c.charCodeAt(0).toString(16);
+		});
+	  }
+
 	//
 	// ─── CONFIGURATION ──────────────────────────────────────────────────────────────
 	//
@@ -19,14 +25,6 @@ export function activate(context: vscode.ExtensionContext) {
 	let textColor: string | undefined = config.get("textColor");
 
 	function compileFile(content: string): string {
-		
-		if (backgroundColor !== undefined) {
-			backgroundColor = backgroundColor.replace("#", "%23");
-		}
-	
-		if (textColor !== undefined) {
-			textColor = textColor.replace("#", "%23");
-		};
 
 		let expression: string[] = [];
 		let lineArr: string[];
@@ -56,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
 					lastBlockIndex = i;
 
 					blockContent = lines.slice(firstBlockIndex, lastBlockIndex + 1).join("");
-					lines[firstBlockIndex] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURIComponent(blockContent)}" /></h3>`;
+					lines[firstBlockIndex] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor?.replace("#", "%23")}]{\\color{${textColor?.replace("#", "%23")}}{${fixedEncodeURIComponent(blockContent)}}}`}" /></h3>`;
 
 					for (let toClear = firstBlockIndex + 1; toClear < lastBlockIndex; toClear++) {
 						lines[toClear] = "";
@@ -70,7 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
 					lineArr = lines[i].split("$");
 					for (let j = 0; j < lineArr.length; j++) {
 						if (j % 2 !== 0 && lineArr[j - 1] !== "\\") {
-							lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURIComponent(lineArr[j])+ "}"}" />`;
+							lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor?.replace("#", "%23")}]{\\color{${textColor?.replace("#", "%23")}}{${fixedEncodeURIComponent(lineArr[j])}}}`}" />`;
 						};
 					};
 

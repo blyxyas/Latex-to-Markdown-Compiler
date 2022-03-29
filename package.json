@@ -28,13 +28,13 @@
 				"latexcompiler.backgroundColor": {
 					"type":"string",
 					"order": 1,
-					"default": "#333",
+					"default": "#292929",
 					"description": "Background Color"
 				},
 				"latexcompiler.textColor": {
 					"type":"string",
 					"order": 2,
-					"default": "#ffffff",
+					"default": "white",
 					"description": "Text Color"
 				}
 			}
