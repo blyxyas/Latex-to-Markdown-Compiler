@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
 					lastBlockIndex = i;
 
 					blockContent = lines.slice(firstBlockIndex, lastBlockIndex + 1).join("");
-					lines[firstBlockIndex] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${encodeURIComponent(blockContent)}" /></h3>`;
+					lines[firstBlockIndex] = `<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURIComponent(blockContent)}" /></h3>`;
 
 					for (let toClear = firstBlockIndex + 1; toClear < lastBlockIndex; toClear++) {
 						lines[toClear] = "";
@@ -70,7 +70,7 @@ export function activate(context: vscode.ExtensionContext) {
 					lineArr = lines[i].split("$");
 					for (let j = 0; j < lineArr.length; j++) {
 						if (j % 2 !== 0 && lineArr[j - 1] !== "\\") {
-							lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURI(lineArr[j].replace("/+/g", "%2b").replace("/#/g", "%23"))+ "}"}" />`;
+							lineArr[j] = `<img src="https://render.githubusercontent.com/render/math?math=${`\\bbox[${backgroundColor}]{\\color{${textColor}}` + encodeURIComponent(lineArr[j])+ "}"}" />`;
 						};
 					};
 

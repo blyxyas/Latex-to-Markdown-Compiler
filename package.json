@@ -34,7 +34,7 @@
 				"latexcompiler.textColor": {
 					"type":"string",
 					"order": 2,
-					"default": "#fff",
+					"default": "#ffffff",
 					"description": "Text Color"
 				}
 			}
@@ -43,7 +43,7 @@
 	"commands": [
 	  {
 		"command": "latexcompiler.compile",
-		"title": "2<== Compile Latex to Markdown ==>"
+		"title": "<== Compile Latex to Markdown ==>"
 	  }
 	]
   },
