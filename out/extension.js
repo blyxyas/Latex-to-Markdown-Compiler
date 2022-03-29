@@ -101,7 +101,6 @@ function activate(context) {
                         }
                         else {
                             vscode.window.showInformationMessage("File Compiled!");
-                            vscode.window.showInformationMessage("File Compiled2!");
                         }
                     });
                 }

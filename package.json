@@ -28,7 +28,7 @@
 				"latexcompiler.backgroundColor": {
 					"type":"string",
 					"order": 1,
-					"default": "#292929",
+					"default": "#101414",
 					"description": "Background Color"
 				},
 				"latexcompiler.textColor": {
