@@ -113,7 +113,6 @@ export function activate(context: vscode.ExtensionContext) {
 						}
 						else {
 							vscode.window.showInformationMessage("File Compiled!");
-							vscode.window.showInformationMessage("File Compiled2!");
 						}
 					});
 				}
