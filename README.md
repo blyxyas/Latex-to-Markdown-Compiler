@@ -68,6 +68,13 @@ code --install-extension PACKAGENAME.vsix
 
 \[Replace `PACKAGENAME` to the name of the build you made.]
 
+## Configuration
+
+- `textColor`: Changes the color of the text
+- `backgroundColor`: Changes the color of the background
+
+You can use HEX Codes (E.g. `#333`) or a name (e.g. `red`)
+
 ## Details
 
 * **You can use `\` to escape the `$` character.**
