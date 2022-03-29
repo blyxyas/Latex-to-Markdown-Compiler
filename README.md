@@ -24,9 +24,53 @@ You can also use `$$` to open a block math formula.
 
 All blocks are centered and are rendered with a `h3` tag.
 
+## Installation
+
+You can install it from the Command palette using <kbd>Command</kbd> + <kbd>P</kbd> and writing `ext install Blyxyas.latexcompilar`, You can also search for `Blyxyas.latexcompiler` in the integrated Marketplace in Visual Studio Code. **(You can also install it in Visual Studio)**.
+
+### Building it yourself
+
+**You can get the latest version installing it with a VSIX file.**
+This is not recommended, see [Installation](#Installation) to install it the recommended way.
+
+1. Clone the repo
+
+
+```bash
+git clone https://github.com/Blyxyas/Latex-to-Markdown-Compiler.git
+```
+
+2. Install the `vsce` CLI tool ([Node.js](https://nodejs.org/en/) required)
+
+```bash
+npm install -g vsce
+```
+
+3. Build the package
+
+
+```bash
+vsce package
+```
+
+4. Install it from VSIX
+
+-  1. Open Command Palette (<kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>)
+-  2. Search `Install from VSIX`
+-  3. Point to the VSIX file.
+
+Or you can also use the CLI
+
+
+```bash
+code --install-extension PACKAGENAME.vsix
+```
+
+\[Replace `PACKAGENAME` to the name of the build you made.]
 
 ## Details
 
 * **You can use `\` to escape the `$` character.**
 
 * The HTML tags for the blocks will be added at the final `$$` of the block. **Everything between the first `$$` and the last `$$` will be removed!**
+* 
