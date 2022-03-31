@@ -14,11 +14,10 @@ Use `$` to open an inline math formula. Like this!
 
 (View the source for this formulas in the [Latex file](https://github.com/Blyxyas/Latex-to-Markdown-Compiler/blob/master/formulas.tex))
 
-This is an inline formula <img src="https://render.githubusercontent.com/render/math?math=\bbox[%23101414]{\color{%23fff}{E%3Dmc%5E2}}" /> which means that I can keep writing in this line.
+This is an inline formula <img src="https://render.githubusercontent.com/render/math?math=\bbox[%230d1117]{\color{%23fff}{E%3Dmc%5E2}}" /> which means that I can keep writing in this line.
 
 You can also use `$$` to open a block math formula.
-
-<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=\bbox[%23101414]{\color{%23fff}{F_g%3D%5Cfrac%7BGm_1m_2%7D%7Bd%5E2%7D}}" /></h3>
+<h3 align="center"><img src="https://render.githubusercontent.com/render/math?math=\bbox[%230d1117]{\color{%23fff}{F_g%3D%5Cfrac%7BGm_1m_2%7D%7Bd%5E2%7D}}" /></h3>
 
 
 
